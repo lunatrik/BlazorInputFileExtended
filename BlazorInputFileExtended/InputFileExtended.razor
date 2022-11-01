@@ -49,9 +49,13 @@
     </figure>
 }
 
-@if (!OnError.HasDelegate)
+@if (!OnError.HasDelegate && !string.IsNullOrEmpty(ErrorMessages))
 {
     <label class="error-label">@ErrorMessages</label>    
 }
 
-<label class="error-label">@APIErrorMessages</label>
+@if (!string.IsNullOrEmpty(APIErrorMessages))
+{
+    <label class="error-label">@APIErrorMessages</label>
+}
+
